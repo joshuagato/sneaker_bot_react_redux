@@ -1,0 +1,313 @@
+// @import url("../../../node_modules/animate.css/animate.css");
+
+.bot-interface {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../backgrounds/sneakers2.png) no-repeat fixed center center /cover;
+  box-shadow: 2px 4px 2px 4px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  #bot {
+    height: 37.5rem;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    #controls {
+      background-color: rgba(40, 44, 52, 0.9);
+      height: 37.5rem;
+      width: 20rem;
+      padding: 0.2rem 0.5rem;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      overflow: hidden;
+      animation: fadeIn;
+      animation-duration: 2s;
+
+      fieldset {
+        margin-bottom: 1rem;
+
+        form {
+          padding: 0.2rem 0.5rem;
+  
+          label {
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 13px;
+            color: #aaaaaa;
+          }
+
+          input {
+            display: block;
+            width: 100%;
+            height: 1.7rem;
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem;
+            outline: none;
+            color: #fff;
+            background-color: #030303;
+            transition: all 0.5s ease-in-out;
+  
+            &:focus {
+              border-style: solid;
+              outline: none;
+              border: none;
+            }
+          }
+
+          select {
+            display: block;
+            width: 100%;
+            height: 2rem;
+            border-radius: 5px;
+            padding: 0.5rem;
+            outline: none;
+            background-color: #030303;
+            color: #fff;
+            transition: all 0.5s ease-in-out;
+
+            option {
+              color: #fff;
+              background-color: #0a2525;
+              height: 3rem;
+
+              &:hover {
+                color: #000;
+              }
+            }
+          }
+  
+          button {
+            display: block;
+            width: 100%;
+            height: 2rem;
+            margin: 0.8rem auto;
+            cursor: pointer;
+            color: #b1b1b1;
+            background-color: #0e0e0e;
+            border: none;
+            border-radius: 10rem;
+            outline: none;
+            transition: all 0.5s ease-in-out;
+  
+            &:hover {
+              background-color: #030303;
+              color: #fff;
+            }
+          }
+
+          #create-task {
+            &:enabled {
+              animation: shakeY;
+              animation-duration: 1.5s;
+            }
+
+            &:disabled {
+              cursor: not-allowed;
+              color: #b1b1b1;
+              background-color: #353535;
+            }
+          }
+
+          .profile-btn {
+            display: inline-block;
+            width: 50%;
+          }
+        }
+      }
+    }
+
+    #tasks {
+      height: 37.5rem;
+      // background-color: #35374e;
+      // background-color: #35363f;
+      background-image: linear-gradient(rgba(32, 32, 32, 0.9) 750px,rgba(34, 34, 34, 0.9) calc(50% + 750px),rgba(31, 31, 31, 0.8) 100%);
+      width: 50rem;
+      padding: 0 1rem 1rem 1rem;
+      overflow-y: auto;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      // width
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      // track
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px #030303;
+        border-radius: 3px;
+      }
+
+      // handle
+      &::-webkit-scrollbar-thumb {
+        background: #acacac;
+        border-radius: 3px;
+      }
+
+      .headings {
+        font-weight: 600;
+        padding: 1rem 1.5rem 1rem 1rem;
+      }
+
+      #fixed-section {
+        background-color: #0c3530;
+        position: fixed;
+        z-index: 10;
+      }
+
+      #padding-section {
+        margin: 4.3rem 0;
+      }
+
+      .task-items {
+        padding: 0.8rem 0 0.8rem 1rem;
+        margin: 0.6rem 0;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        animation: flipInX;
+        animation-duration: 1.5s;
+        
+        &:nth-child(even) {
+          // background-color: #303b3a;
+          background-color: rgba(48, 59, 58, 0.5);
+          border-radius: 10rem;
+        }
+
+        &:nth-child(odd) {
+          // background-color: #374d52;
+          background-color: rgba(55, 67, 82, 0.5);
+          border-radius: 10rem;
+        }
+      }
+
+      .prod-id {
+        display: inline-block;
+        width: 7rem;
+      }
+
+      .size {
+        display: inline-block;
+        width: 7rem;
+      }
+
+      .site {
+        display: inline-block;
+        width: 7rem;
+      }
+
+      .profile {
+        display: inline-block;
+        width: 7rem;
+        // margin-right: 0;
+      }
+
+      .status {
+        display: inline-block;
+        width: 9rem;
+        // margin-right: 0;
+      }
+
+      .action {
+        display: inline-block;
+        width: 8rem;
+        // margin-right: 0;
+
+        #checked {
+          color: #239b45;
+          margin-left: 1.5rem;
+          cursor: default;
+        }
+
+        .delete {
+          color: #9b2347;
+        }
+
+        span {
+          margin: 0 0.5rem;
+          
+          &:hover {
+            cursor: pointer;
+          }
+
+          &#start {
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+              color: green;
+            }
+          }
+
+          &#edit {
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+              color: yellow;
+            }
+          }
+
+          &#delete {
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+              color: red;
+            }
+          }
+        }
+      }
+    }
+
+    #user-specific-data {
+      background-image: linear-gradient(rgba(32, 32, 32, 0.9) 750px,rgba(34, 34, 34, 0.9) calc(50% + 750px),rgba(31, 31, 31, 0.8) 100%);
+      width: 10rem;
+      height: 6rem;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .logout {
+        background-color: #ac3045;
+        color: rgb(204, 200, 200);
+        border: none;
+        border-radius: 1rem;
+        width: 6rem;
+        height: 2rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          background-color: #dd1133;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.moveFromTop {
+  animation-name: moveFromTop;
+  animation-duration: 0.7s;
+}
+
+.moveFromBottom {
+  animation-name: moveFromBottom;
+  animation-duration: 0.7s;
+}
+
+@keyframes moveFromTop {
+  from { transform: translateY(-40px); }
+  to { transform: translateY(0); }
+}
+
+@keyframes moveFromBottom {
+  from { transform: translateY(40px); }
+  to { transform: translateY(0); }
+}
